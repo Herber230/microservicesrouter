@@ -1,0 +1,34 @@
+
+<div fxLayout="row" >
+    
+    <div fxFlexOrder="1" fxFlex="30" fxShow.xs="false" fxShow.sm="false"></div>
+    <div fxFlexOrder="2" fxFlex >
+        <form #f="ngForm" (ngSubmit)="tryLogin(f.valid)" novalidate>
+            <mat-card>
+                <mat-card-title class="center-element">
+                    Iniciar Sesión
+                </mat-card-title>
+                <mat-card-content>
+                    <br/>
+                    <mat-form-field class="full-width">
+                        <input name="userInput" [(ngModel)]="user" matInput placeholder="USUARIO" required>
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field class="full-width">
+                        <input name="passwordInput" [(ngModel)]="password" matInput [type]="showPass ? 'text' : 'password'" placeholder="CONTRASEÑA" required>
+                    </mat-form-field>
+                    <mat-checkbox [(ngModel)]="showPass" name="showPassCheckBox">Mostrar contraseña</mat-checkbox>
+                </mat-card-content>
+                <mat-card-actions class="center-element">
+                        <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">INGRESAR</button>                        
+                </mat-card-actions>
+                <div class="pull-right">
+                    <a routerLink="/signin">Registrarse</a>
+                </div>
+            </mat-card>
+                            
+        </form>        
+    </div>
+    <div fxFlexOrder="3" fxFlex="30" fxShow.xs="false" fxShow.sm="false"></div>
+
+</div>

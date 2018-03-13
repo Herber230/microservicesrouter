@@ -1,0 +1,7 @@
+Modulos registrados 
+<br/>
+<br/>
+<br/>
+<div *ngFor="let module of modules">
+    <button mat-raised-button  (click)="navigateToModule(module)">{{module.displayName}}</button>
+</div>
