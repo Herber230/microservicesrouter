@@ -1,7 +1,6 @@
 import mongoose = require('mongoose');
 import { HcSession } from '../hcSession';
 import { EMQueryWrapper } from './emUtilities';
-import DataAccess = require('../../app/dataAccess');
 import { EMEntity, EntityDocument } from './emEntity';
 import { MongooseDocument } from 'mongoose';
 import { Entity } from '../hcEntity';
@@ -28,7 +27,7 @@ class EMSession extends HcSession
     
     connect( url : string, success? : () => void, error ? : (err) => void ) : void
     {
-        this._mongooseConnection = mongoose.createConnection("mongodb://" + url, { useMongoClient: true }); 
+        this._mongooseConnection = mongoose.createConnection("mongodb://" + url); 
     }
 
     getModel<T extends EntityDocument >(entityName : string) : mongoose.Model<T>

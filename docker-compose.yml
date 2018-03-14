@@ -25,13 +25,30 @@ services:
         depends_on:
             - authdb
     authdb:
-        image: mongo:latest
+        image: mongo:3.4
         container_name: "authdb"
         environment:
           - MONGO_DATA_DIR=/data/db
           - MONGO_LOG_DIR=/dev/null
         volumes:
-          - ./services/mongo/data/db:/data/db
+          - ./services/auth-db/data/db:/data/db
         ports:
             - 27017:27017
-        command: mongod --smallfiles --logpath=/dev/null # --quiet
+        command: mongod --smallfiles --logpath=/dev/null # --quiet 
+    expressapi:
+        build: services/express-api/
+        working_dir: /src
+        command: bash -c "npm install && npm run deploy"
+        volumes:
+          - ./services/express-api/src:/src
+        ports:
+          - "3001:3000"        
+    angularjsapp:
+        build: services/angularjs-app/
+        ports:
+          - "4280:80"        
+        links:
+            - expressapi
+        depends_on:
+            - expressapi
+        

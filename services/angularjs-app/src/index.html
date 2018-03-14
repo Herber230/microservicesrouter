@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="app.ejemplo">
+<head>
+    <meta charset="UTF-8">
+    <title>Ej de AngularJS</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div ui-view=""></div>
+    </div>    
+
+    <br/>
+    <!--Carga de dependencias-->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+
+    <!--Carga de archivo principal de la aplicacion -->
+    <script src="app/js/app.js"></script>
+
+    <!--Carga de controladores y servicios-->
+    <script src="app/js/services/personaService.js"></script>
+    
+    <script src="app/shared/states/home/homeController.js"></script>
+    <script src="app/shared/states/listado/listadoController.js"></script>
+    <script src="app/shared/states/edicion/edicionController.js"></script>
+    
+</body>
+</html

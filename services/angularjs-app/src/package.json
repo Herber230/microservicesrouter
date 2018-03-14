@@ -1,0 +1,22 @@
+{
+  "name": "angularjs-communication-frontend",
+  "version": "0.0.1",
+  "description": "CRUD RESTful con AngularJS",
+  "main": "",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "author": "Herber Colop",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-sanitize": "^1.6.5",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router": "^1.0.3",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}

@@ -28,7 +28,7 @@ export class App {
 
         //Create Session and connect to mongodb
         this._session = new EMSession();
-        this._session.connect('authdb:27017/authbd001');
+        this._session.connect('localhost:27017/authbd001');
 
         //Call app bootstrap methods
         this.middleware();        

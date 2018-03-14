@@ -1,0 +1,45 @@
+<br/>
+<div class="row">
+    <div class="text-center">
+        <h2>Listado de personas</h2>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td><center><strong>Nombre</strong></center></td>
+                    <td><center><strong>Apellido</strong></center></td>
+                    <td><center><strong>Edad</strong></center></td>
+                    <td width="200"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="persona in vm.personas">
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.apellido}}</td>
+                    <td>{{persona.edad}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.verPersona(persona)">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp Editar
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="vm.eliminarPersona(persona)">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <center>
+        <button type="button" class="btn btn-default" ng-click="vm.agregarPersona()">
+            <span class="glyphicon glyphicon-plus-sign"></span>&nbsp Agregar
+        </button>
+    </center>    
+</div>
+

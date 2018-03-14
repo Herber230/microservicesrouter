@@ -1,0 +1,14 @@
+{
+  "name": "back-end-nodejs",
+  "version": "0.0.1",
+  "description": "Simple api rest with static data",
+  "main": "main.js",
+  "scripts": {
+    "deploy": "node main.js"
+  },
+  "author": "Herber Colop",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
+}

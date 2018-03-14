@@ -1,0 +1,51 @@
+<br/>
+<div class="row">
+    <div class="text-center">
+        <h2>{{vm.getTitulo()}}</h2>
+    </div>
+</div>
+<br/>
+<div class="row">
+        
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Datos de la persona
+        </div>
+        <div class="panel-body">
+
+            <form name="formEdicion" ng-submit="vm.guardar()">
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="hidden-md hidden-lg"><br/></div>
+                        <input type="text" class="form-control" ng-model="vm.persona.nombre" placeholder="NOMBRE" />
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="hidden-md hidden-lg"><br/></div>
+                        <input type="text" class="form-control" ng-model="vm.persona.apellido" placeholder="APELLIDO" />
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="hidden-md hidden-lg"><br/></div>
+                        <input type="text" class="form-control" ng-model="vm.persona.edad" placeholder="EDAD" />
+                    </div>
+                </div>
+                <br/><br/>
+                <div class="row">
+                    <center>
+                        <button type="button" class="btn btn-default" ng-click="vm.cancelar()">
+                            <span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-success">
+                            <span class="glyphicon glyphicon-floppy-disk"></span>&nbsp Guardar
+                        </button>
+                        <button type="button" class="btn btn-danger" ng-click="vm.eliminar()" ng-show="vm.puedeEliminar()">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp Eliminar
+                        </button>
+                    </center>
+                </div>
+                
+            </form>    
+
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@ class EMSession extends hcSession_1.HcSession {
         super();
     }
     connect(url, success, error) {
-        this._mongooseConnection = mongoose.createConnection("mongodb://" + url, { useMongoClient: true });
+        this._mongooseConnection = mongoose.createConnection("mongodb://" + url);
     }
     getModel(entityName) {
         return (this.entitiesInfo.find(e => e.name == entityName).model);
