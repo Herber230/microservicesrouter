@@ -51,4 +51,11 @@ services:
             - expressapi
         depends_on:
             - expressapi
-        
+    txapi:
+        build: services/tx-api/
+        ports:
+          - "3002:8080"
+    tx2api:
+        build: services/tx2-api/
+        ports:
+          - "8080:80"
