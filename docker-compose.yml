@@ -8,8 +8,6 @@ services:
           - ./services/auth-app/src:/src
         ports:
           - "4200:4200"
-        links:
-          - authapi
         depends_on:
           - authapi
     authapi:
@@ -46,33 +44,15 @@ services:
     angularjsapp:
         build: services/angularjs-app/
         ports:
-          - "4280:80"        
-        links:
-            - expressapi
+          - "4201:80"        
         depends_on:
             - expressapi
-    txapi:
-        build: services/tx-api/
-        ports:
-          - "3002:8080"
-    tx2api:
-        build: services/tx2-api/
-        ports:
-          - "8080:80"
-    # expressapi:
-    #     build: services/express-api/
-    #     working_dir: /src
-    #     command: bash -c "npm install && npm run deploy"
-    #     volumes:
-    #       - ./services/express-api/src:/src
+    # txapi:
+    #     build: services/tx-api/
     #     ports:
-    #       - "3001:3000"        
-    # angularjsapp:
-    #     build: services/angularjs-app/
+    #       - "3002:8080"
+    # tx2api:
+    #     build: services/tx2-api/
     #     ports:
-    #       - "4280:80"        
-    #     links:
-    #         - expressapi
-    #     depends_on:
-    #         - expressapi
-        
+    #       - "8080:80"
+    
