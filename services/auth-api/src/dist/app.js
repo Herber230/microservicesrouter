@@ -19,7 +19,7 @@ class App {
         this._expressApp.set('port', port);
         //Create Session and connect to mongodb
         this._session = new emSession_1.EMSession();
-        this._session.connect('localhost:27017/authbd001');
+        this._session.connect('authdb:27017/authbd001');
         //Call app bootstrap methods
         this.middleware();
         this.registerEntities();
