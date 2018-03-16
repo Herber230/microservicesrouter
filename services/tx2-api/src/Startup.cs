@@ -34,6 +34,13 @@ namespace tx2_api
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder =>
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+                
             app.UseMvc();
         }
     }

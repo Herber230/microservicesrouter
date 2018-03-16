@@ -5,11 +5,16 @@
 
     angular.module('app.ejemplo').controller('listadoController', controller);
 
-    controller.$inject = ['PersonaService', '$state'];
+    controller.$inject = ['PersonaService', '$state', 'apiSelector'];
 
-    function controller(PersonaService, $state)
+    function controller(PersonaService, $state, apiSelector)
     {
         var vm = this;
+
+        apiSelector.reload = function()
+        {
+            cargarPersonas();
+        }
 
         function activate()
         {
@@ -18,7 +23,7 @@
 
         function cargarPersonas()
         {
-            PersonaService.getCollection().then(
+            PersonaService.getCollection(apiSelector.get()).then(
                 (responseSuccess)=>{
                     vm.personas = responseSuccess.data;
                 },(responseError)=>{
@@ -34,7 +39,7 @@
 
         vm.eliminarPersona = function(persona)
         {
-            PersonaService.delete(persona.id).then( 
+            PersonaService.delete(apiSelector.get(), persona.id).then( 
                 (responseSuccess)=>{
                     console.info("Persona eliminada");
                     cargarPersonas();

@@ -17,7 +17,8 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#!/app/home">Home</a>
+			<a class="navbar-brand" href="http://localhost:4200/">MAIN MODULE</a>
+			<a class="navbar-brand" href="#!/app/home">HOME</a>
 		</div>
 		<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
 			<ul class="nav navbar-nav">
@@ -28,4 +29,15 @@
 	</nav>
 </div>
 
+<br/>
+<br/>
+<center>
+	<div class="btn-group">
+		<label class="btn btn-primary" ng-model="vm.apiSelected" uib-btn-radio="'express'" ng-change="vm.reload()">ExpressJS</label>
+		<label class="btn btn-primary" ng-model="vm.apiSelected" uib-btn-radio="'dotnet'" ng-change="vm.reload()">Dot Net Core</label>
+		<label class="btn btn-primary" ng-model="vm.apiSelected" uib-btn-radio="'springboot'" ng-change="vm.reload()">Spring Boot</label>
+	</div>
+</center>
+<br/>
+<br/>
 <div ui-view=""></div>

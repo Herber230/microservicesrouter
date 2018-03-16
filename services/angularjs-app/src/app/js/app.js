@@ -19,7 +19,8 @@
                 url: '/app',
                 templateUrl: 'app/views/app.html',
                 controller: 'mainController',
-                controllerAs: 'vm'                
+                controllerAs: 'vm',
+                resolve: { apiSelector: () => { return { 'get': 'A', reload: 'B' } } }                
             })
             .state('app.home', {
                 url: '/home',
@@ -42,7 +43,9 @@
     };
 
     mainModule.constant('AppConfig', { 
-        "baseUrl": "http://localhost:3001/api/"
+        "apiExpress": "http://localhost:3001/api/",
+        "apiDotNetCore": "http://localhost:3002/api/",
+        "apiSpringBoot": "http://localhost:3003/api/"
     });
     
 })();
@@ -72,15 +75,18 @@
 
     angular.module('app.ejemplo').controller('mainController', controller);
 
-    controller.$inject = ['$state', '$location'];
+    controller.$inject = ['$state', '$location', 'apiSelector'];
 
-    function controller($state, $location)
+    function controller($state, $location, apiSelector)
     {
         var vm = this;
+        apiSelector.get = () => {
+            return vm.apiSelected;
+        };
 
         function activate()
         {
-
+            vm.apiSelected = 'express';
         };
 
         vm.irAHome = function()
@@ -91,6 +97,12 @@
         vm.irAListado = function()
         {
             $state.go('app.listado');
+        };
+
+        vm.reload = function()
+        {
+            if (apiSelector.reload != "B")
+                apiSelector.reload();
         };
 
 

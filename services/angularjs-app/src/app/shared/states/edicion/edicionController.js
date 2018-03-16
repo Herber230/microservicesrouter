@@ -4,9 +4,9 @@
 
     angular.module('app.ejemplo').controller('edicionController', controller);
 
-    controller.$inject = ['PersonaService', '$stateParams', '$state'];
+    controller.$inject = ['PersonaService', '$stateParams', '$state', 'apiSelector'];
 
-    function controller(PersonaService, $stateParams, $state)
+    function controller(PersonaService, $stateParams, $state, apiSelector)
     {
         var vm = this;
 
@@ -18,7 +18,7 @@
 
         vm.guardar = function()
         {
-            PersonaService.save(vm.persona).then( 
+            PersonaService.save(apiSelector.get(), vm.persona).then( 
                 (responseSuccess)=>{
                     console.info("Persona guardada");
                     $state.go('app.listado');
@@ -29,7 +29,7 @@
 
         vm.eliminar = function()
         {
-            PersonaService.delete(vm.persona.id).then( 
+            PersonaService.delete(apiSelector.get(), vm.persona.id).then( 
                 (responseSuccess)=>{
                     console.info("Persona eliminada");
                     $state.go('app.listado');
@@ -50,7 +50,7 @@
 
         function cargarPersona()
         {
-            PersonaService.get($stateParams.id).then( 
+            PersonaService.get(apiSelector.get(), $stateParams.id).then( 
                 (responseSuccess)=>{
                     vm.persona = responseSuccess.data;
                 }, (responseError)=>{

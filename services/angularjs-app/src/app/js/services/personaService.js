@@ -10,43 +10,54 @@
     {
         var sv = this;
 
-        sv.getCollection = function()
+        function getUrl( apiSelected )
+        {
+            if (apiSelected == 'express')
+                return AppConfig.apiExpress;
+            if (apiSelected == 'dotnet')
+                return AppConfig.apiDotNetCore;
+            if (apiSelected == 'springboot')
+                return AppConfig.apiSpringBoot;
+        }
+
+
+        sv.getCollection = function( apiSelected )
         {
             return $http({
                 method: 'GET',
-                url: AppConfig.baseUrl + 'persona'
+                url: getUrl(apiSelected) + 'persona'
             });
         };
 
-        sv.save = function(data)
+        sv.save = function(apiSelected, data)
         {
             if (data.id && data.id > 0)
                 return $http({
                     method: 'PUT',
-                    url: AppConfig.baseUrl + 'persona',
+                    url: getUrl(apiSelected) + 'persona',
                     data: data
                 });
             else
                 return $http({
                     method: 'POST',
-                    url: AppConfig.baseUrl + 'persona',
+                    url: getUrl(apiSelected) + 'persona',
                     data: data
                 });
         };
 
-        sv.get = function(id)
+        sv.get = function(apiSelected, id)
         {
             return $http({
                 method: 'GET',
-                url: AppConfig.baseUrl + 'persona/' + id
+                url: getUrl(apiSelected) + 'persona/' + id
             });
         };
 
-        sv.delete = function(id)
+        sv.delete = function(apiSelected, id)
         {
             return $http({
                 method: 'DELETE',
-                url: AppConfig.baseUrl + 'persona/' + id
+                url: getUrl(apiSelected) + 'persona/' + id
             });
         };
 

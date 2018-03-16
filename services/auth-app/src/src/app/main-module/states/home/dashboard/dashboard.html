@@ -1,7 +1,27 @@
-Modulos registrados 
-<br/>
-<br/>
-<br/>
-<div *ngFor="let module of modules">
-    <button mat-raised-button  (click)="navigateToModule(module)">{{module.displayName}}</button>
+
+<div fxLayout="row" >
+    
+    <div fxFlexOrder="1" fxFlex="30" fxShow.xs="false" fxShow.sm="false"></div>
+    <div fxFlexOrder="2" fxFlex >
+        <img [src]="'assets/angular.png'">
+    </div>
+    <div fxFlexOrder="3" fxFlex="30" fxShow.xs="false" fxShow.sm="false"></div>
+
 </div>
+
+
+<div fxLayout="row" >
+    
+    <div fxFlexOrder="1" fxFlex="30" fxShow.xs="false" fxShow.sm="false"></div>
+    <div fxFlexOrder="2" fxFlex >
+        <h3>MODULOS REGISTRADOS</h3> 
+        <br/>
+        <br/>
+        <div *ngFor="let module of modules">
+            <button mat-raised-button  (click)="navigateToModule(module)">{{module.displayName}}</button>
+        </div>        
+    </div>
+    <div fxFlexOrder="3" fxFlex="30" fxShow.xs="false" fxShow.sm="false"></div>
+
+</div>
+
