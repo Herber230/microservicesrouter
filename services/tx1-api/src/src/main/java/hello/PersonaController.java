@@ -56,7 +56,7 @@ public class PersonaController {
         
         persona.setId( max + 1);
         _personasArray.add(persona);
-		return new ResponseEntity<String>("Created", HttpStatus.CREATED);
+		return new ResponseEntity<Persona>(persona, HttpStatus.CREATED);
 	}
 
 	
@@ -76,7 +76,7 @@ public class PersonaController {
 
         _personasArray.remove(index);
         _personasArray.add(persona);
-		return new ResponseEntity<String>("Updated", HttpStatus.OK);
+		return new ResponseEntity<Persona>(persona, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/persona/{id}", method = RequestMethod.DELETE)
@@ -94,7 +94,7 @@ public class PersonaController {
 
         _personasArray.remove(index);
 
-		return new ResponseEntity<String>("Removed", HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	

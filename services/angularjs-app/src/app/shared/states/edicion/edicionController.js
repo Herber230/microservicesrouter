@@ -20,9 +20,11 @@
         {
             PersonaService.save(apiSelector.get(), vm.persona).then( 
                 (responseSuccess)=>{
+                    let b = responseSuccess;
                     console.info("Persona guardada");
                     $state.go('app.listado');
                 }, (responseError)=>{
+                    let a = responseError;
                     console.info("Error");
                 } );
         };

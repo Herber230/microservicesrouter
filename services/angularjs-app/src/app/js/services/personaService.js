@@ -23,10 +23,12 @@
 
         sv.getCollection = function( apiSelected )
         {
-            return $http({
+            let promesaDatos = $http({
                 method: 'GET',
                 url: getUrl(apiSelected) + 'persona'
             });
+
+            return promesaDatos;
         };
 
         sv.save = function(apiSelected, data)
