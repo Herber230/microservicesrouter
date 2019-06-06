@@ -43,8 +43,8 @@
 
     mainModule.constant('AppConfig', { 
         "apiExpress": "http://localhost:3001/api/",
-        "apiDotNetCore": "http://localhost:8080/api/",
-        "apiSpringBoot": "http://localhost:3001/api/"
+        "apiDotNetCore": "http://localhost:3003/api/",
+        "apiSpringBoot": "http://localhost:3002/api/"
     });
     
 })();

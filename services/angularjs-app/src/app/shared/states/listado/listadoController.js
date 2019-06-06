@@ -23,25 +23,18 @@
 
         function cargarPersonas()
         {
-            console.log('Se van a cargar personas');
-            
             let promesaDeDatos = PersonaService.getCollection(apiSelector.get());
             
             promesaDeDatos.then(
                 (responseSuccess)=>
                 {
-                    var algo = responseSuccess;
-                    console.log("Aqui ya se cargaron las personas")
                     vm.personas = responseSuccess.data;
                 },
                 function(responseError){
-                    var otraCosa = responseError;
+                    vm.personas = [];
                     console.log('Hubo un error al cargar las personas')
                 }
             );
-
-            console.log('Ya se mandaron a pedir a las personas');
-            
             
         };
 

@@ -1,38 +1,38 @@
 version: '2'
 services:
-    authapp:
-        build: services/auth-app/
-        working_dir: /src
-        command: bash -c "npm install && npm run start"
-        volumes:
-          - ./services/auth-app/src:/src
-        ports:
-          - "4200:4200"
-        depends_on:
-          - authapi
-    authapi:
-        build: services/auth-api/
-        working_dir: /src
-        command: bash -c "npm install && npm run compile && npm run deploy"
-        volumes:
-          - ./services/auth-api/src:/src
-        ports:
-          - "3000:3000"        
-        links:
-            - authdb
-        depends_on:
-            - authdb
-    authdb:
-        image: mongo:3.4
-        container_name: "authdb"
-        environment:
-          - MONGO_DATA_DIR=/data/db
-          - MONGO_LOG_DIR=/dev/null
-        volumes:
-          - ./services/auth-db/data/db:/data/db
-        ports:
-            - 27017:27017
-        command: mongod --smallfiles --logpath=/dev/null # --quiet 
+    # authapp:
+    #     build: services/auth-app/
+    #     working_dir: /src
+    #     command: bash -c "npm install && npm run start"
+    #     volumes:
+    #       - ./services/auth-app/src:/src
+    #     ports:
+    #       - "4200:4200"
+    #     depends_on:
+    #       - authapi
+    # authapi:
+    #     build: services/auth-api/
+    #     working_dir: /src
+    #     command: bash -c "npm install && npm run compile && npm run deploy"
+    #     volumes:
+    #       - ./services/auth-api/src:/src
+    #     ports:
+    #       - "3000:3000"        
+    #     links:
+    #         - authdb
+    #     depends_on:
+    #         - authdb
+    # authdb:
+    #     image: mongo:3.4
+    #     container_name: "authdb"
+    #     environment:
+    #       - MONGO_DATA_DIR=/data/db
+    #       - MONGO_LOG_DIR=/dev/null
+    #     volumes:
+    #       - ./services/auth-db/data/db:/data/db
+    #     ports:
+    #         - 27017:27017
+    #     command: mongod --smallfiles --logpath=/dev/null # --quiet 
     expressapi:
          build: services/express-api/
          working_dir: /src
